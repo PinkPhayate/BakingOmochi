@@ -20,12 +20,30 @@
   outline: none;
   margin: 5px 5px 5px 5px;
 }
+.current {
+    border: none;
+    border-radius: 40px;
+    line-height: 48px;
+    padding: 0 20px;
+    background: #fff;
+    color: #7200e4;
+    cursor: pointer;
+    outline: none;
+    margin: 5px 5px 5px 5px;
+
+}
+#app {
+  max-width: 10px;
+  margin: 0 auto;
+}
+
 </style>
 
 </head>
 <body>
 <div id="debugStatus" class="container">
     <h1>デバッグくん</h1>
+    <h3>いまの状態 <div class="current">{{status}}</div></h3>
     <button v-on:click="pushA()" class="button">A</button>初期<br>
     <button v-on:click="pushB()" class="button">B</button>判定前<br>
     <button v-on:click="pushC()" class="button">C</button>判定中<br>
