@@ -18,7 +18,8 @@ new Vue({
 
   data: {
     status: 'hoge',
-    imgName: 'img/img3-y.jpg'
+    imgName: 'img/img3-y.jpg',
+    judgeImgName: 'img/img3-1.jpg'
   },
   watch: {
        // 値が変更された時に呼び出される
@@ -28,6 +29,11 @@ new Vue({
           handler: function() {
               setTimeout(this.changeImage,3000);
           },
+      },
+      judgeImgName: {
+          handler: function() {
+              setTimeout(this.changeJudgeImage,1000);
+          },
       }
   },
 
@@ -36,10 +42,13 @@ new Vue({
       this.status = statusRef.on('value', (snapshot) => {
           this.status = snapshot.val()
 
-          if(this.status === 'd') {
-              setTimeout(this.initApp,5000);
+          if(this.status === 'c') {
+              setTimeout(this.changeJudgeImage,1000);
           }
 
+          if(this.status === 'd') {
+                  setTimeout(this.restartOperation,5000);
+          }
           if(this.status === 'e') {
               setTimeout(this.changeImage,3000);
           }
@@ -51,15 +60,35 @@ new Vue({
           this.status = 'b'
           statusRef.set('b')
       },
-      initApp:function() {
+      initialize () {
+          this.status = 'a'
+          statusRef.set('a')
+      },
+      restartOperation:function() {
           this.status = 'b'
           statusRef.set('b')
       },
       changeImage:function() {
-          if(this.imgName === 'img/img4.jpg') {
+          if(this.status !== 'e') {
               this.imgName = 'img/img3-y.jpg'
+              return;
+          }
+          if(this.imgName === 'img/img4-1.jpg') {
+              this.imgName = 'img/img4-2.jpg'
           } else {
-              this.imgName = 'img/img4.jpg'
+              this.imgName = 'img/img4-1.jpg'
+          }
+      },
+      changeJudgeImage:function() {
+          if(this.status !== 'c') {
+              this.judgeImgName = 'img/img3-1.jpg'
+              return;
+          }
+
+          if(this.judgeImgName === 'img/img3-1.jpg') {
+              this.judgeImgName = 'img/img3-2.jpg'
+          } else {
+              this.judgeImgName = 'img/img3-1.jpg'
           }
       }
 
