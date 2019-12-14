@@ -10,12 +10,10 @@
 </head>
 <body>
 <div id="statusCheck" class="container">
-    <h1>SAFTY MOCHI</h1>
-    <h2 v-if="status === 'a'">お餅を置いたらボタンを押してね</h2>
-    <h2 v-else-if="status === 'b'">判定前</h2>
-    <h2 v-else-if="status === 'c'">判定中</h2>
-    <h2 v-else-if="status === 'd'">判定NG</h2>
-    <h2 v-else>焼き中</h2>
+    <img v-if="status === 'a'" src="img/img1.jpg" v-on:click="storeMessage()">
+    <img v-if="status === 'b'" src="img/img2.jpg">
+    <img v-if="status === 'c'" src="img/img3.jpg">
+    <img v-if="status === 'd'" src="img/img3-n.jpg">
 </div>
 <script src="js/index.js"></script>
 </body>

@@ -31,16 +31,20 @@ new Vue({
           this.status = snapshot.val()
 
           if(this.status === 'd') {
-              setTimeout(this.initApp,3000);
+              setTimeout(this.initApp,5000);
           }
       })
 
   },
   methods: {
-      initApp:function() {
+      storeMessage () {
           this.status = 'b'
-          // statusRef.push('b')
           statusRef.set('b')
       },
+      initApp:function() {
+          this.status = 'b'
+          statusRef.set('b')
+      },
+
   },
 })
