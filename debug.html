@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>morinodoubutu</title>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  <script src="https://unpkg.com/native-toast@1.2.1/dist/native-toast.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/native-toast@1.2.1/dist/native-toast.css">
+
+<style type="text/css">
+.button {
+  border: none;
+  border-radius: 40px;
+  line-height: 48px;
+  padding: 0 20px;
+  background: #00e45f;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  margin: 5px 5px 5px 5px;
+}
+</style>
+
+</head>
+<body>
+<div id="debugStatus" class="container">
+    <h1>デバッグくん</h1>
+    <button v-on:click="pushA()" class="button">A</button>初期<br>
+    <button v-on:click="pushB()" class="button">B</button>判定前<br>
+    <button v-on:click="pushC()" class="button">C</button>判定中<br>
+    <button v-on:click="pushD()" class="button">D</button>判定NG<br>
+    <button v-on:click="pushE()" class="button">E</button>焼き中<br>
+    <button v-on:click="pushF()" class="button">F</button>完成<br>
+    <button v-on:click="pushG()" class="button">G</button>焼き終了<br>
+
+
+
+</div>
+<script src="debug.js"></script>
+</body>
+</html>
