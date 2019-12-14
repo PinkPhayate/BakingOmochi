@@ -37,8 +37,8 @@ new Vue({
       }
   },
 
+  // 最初に呼び出される
   created() {
-      // this.status = 'Hatanaka'
       this.status = statusRef.on('value', (snapshot) => {
           this.status = snapshot.val()
 
@@ -47,7 +47,7 @@ new Vue({
           }
 
           if(this.status === 'd') {
-                  setTimeout(this.restartOperation,5000);
+              setTimeout(this.restartOperation,5000);
           }
           if(this.status === 'e') {
               setTimeout(this.changeImage,3000);
@@ -69,6 +69,7 @@ new Vue({
           statusRef.set('b')
       },
       changeImage:function() {
+          //  statusが変更されたら、imgNameの切り替えが止まるようにする
           if(this.status !== 'e') {
               this.imgName = 'img/img3-y.jpg'
               return;
@@ -80,6 +81,7 @@ new Vue({
           }
       },
       changeJudgeImage:function() {
+          //  statusが変更されたら、judgeImgNameの切り替えが止まるようにする
           if(this.status !== 'c') {
               this.judgeImgName = 'img/img3-1.jpg'
               return;
