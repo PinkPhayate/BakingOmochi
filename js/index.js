@@ -17,11 +17,17 @@ new Vue({
   el: "#statusCheck",
 
   data: {
-    status: 'hoge'
+    status: 'hoge',
+    imgName: 'img/img3-y.jpg'
   },
   watch: {
        // 値が変更された時に呼び出される
       status: {
+      },
+      imgName: {
+          handler: function() {
+              setTimeout(this.changeImage,3000);
+          },
       }
   },
 
@@ -31,16 +37,31 @@ new Vue({
           this.status = snapshot.val()
 
           if(this.status === 'd') {
-              setTimeout(this.initApp,3000);
+              setTimeout(this.initApp,5000);
+          }
+
+          if(this.status === 'e') {
+              setTimeout(this.changeImage,3000);
           }
       })
 
   },
   methods: {
-      initApp:function() {
+      doOperation () {
           this.status = 'b'
-          // statusRef.push('b')
           statusRef.set('b')
       },
+      initApp:function() {
+          this.status = 'b'
+          statusRef.set('b')
+      },
+      changeImage:function() {
+          if(this.imgName === 'img/img4.jpg') {
+              this.imgName = 'img/img3-y.jpg'
+          } else {
+              this.imgName = 'img/img4.jpg'
+          }
+      }
+
   },
 })
