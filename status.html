@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>morinodoubutu</title>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  <script src="https://unpkg.com/native-toast@1.2.1/dist/native-toast.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/native-toast@1.2.1/dist/native-toast.css">
+</head>
+<body>
+<div id="statusCheck" class="container">
+    <h1>SAFTY MOCHI</h1>
+    <h2 v-if="status === 'a'">お餅を置いたらボタンを押してね</h2>
+    <h2 v-else-if="status === 'b'">判定前</h2>
+    <h2 v-else-if="status === 'c'">判定中</h2>
+    <h2 v-else-if="status === 'd'">判定NG</h2>
+    <h2 v-else>焼き中</h2>
+</div>
+<script src="js/index.js"></script>
+</body>
+</html>
