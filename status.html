@@ -12,7 +12,7 @@
 <body>
 <div id="statusCheck" class="container">
     <img style="width: 100%;" v-if="status === 'a'" src="img/img1.jpg" v-on:click="doOperation()">
-    <img style="width: 100%;" v-if="status === 'b'" src="img/img2.jpg">
+    <img style="width: 100%;" v-if="status === 'b'" src="img/img2.jpg" v-on:click="startBaking()">
     <img style="width: 100%;" v-if="status === 'c'" v-bind:src="judgeImgName">
     <img style="width: 100%;" v-if="status === 'd'" src="img/img3-n.jpg">
     <img style="width: 100%;" v-if="status === 'e'" v-bind:src="imgName">

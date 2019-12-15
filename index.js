@@ -64,6 +64,10 @@ new Vue({
           this.status = 'a'
           statusRef.set('a')
       },
+      startBaking() {
+          this.status = 'c'
+          statusRef.set('c')
+      },
       restartOperation:function() {
           this.status = 'b'
           statusRef.set('b')
